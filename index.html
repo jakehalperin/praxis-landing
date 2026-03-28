@@ -4,64 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Praxis — Ongoing AI Enablement for Teams</title>
-  <meta name="description" content="Praxis is the ongoing AI membership for your team. Certification, quarterly workshops, and 1-on-1 office hours — so your team never falls behind.">
-  <meta property="og:title" content="Praxis — Your Team's Ongoing AI Partner">
-  <meta property="og:description" content="AI moves fast. Your team needs a continuous partner — not a one-time course. Certification, quarterly workshops, and 1-on-1 office hours, all in one membership.">
+  <meta name="description" content="Praxis is the AI membership that keeps your team ahead — custom curriculums, AI coaches, live sessions, and human-reviewed certification. One flat price, unlimited team members.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Syne:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --void: #07070c;
-      --deep: #0d0d14;
-      --surface: #13131c;
-      --surface2: #171727;
-      --border: rgba(255,255,255,0.06);
-      --border-bright: rgba(255,255,255,0.12);
-      --cyan: #00e8ff;
-      --cyan-dim: rgba(0,232,255,0.12);
-      --cyan-glow: 0 0 0 1px rgba(0,232,255,0.2), 0 0 40px rgba(0,232,255,0.1);
-      --magenta: #ff2d9b;
-      --magenta-dim: rgba(255,45,155,0.12);
-      --purple: #9d5cff;
-      --purple-dim: rgba(157,92,255,0.12);
-      --white: #eeeef2;
-      --fog: #7a7a90;
-      --dim: #44445a;
-      --gold: #ffce2e;
-      --green: #22c55e;
-      --font-body: 'Instrument Sans', system-ui, sans-serif;
-      --font-head: 'Syne', system-ui, sans-serif;
+      --white: #ffffff;
+      --off-white: #f8f9fb;
+      --border: #e8eaed;
+      --border-dark: #d1d5db;
+      --text: #0f1117;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      /* Praxis brand accents — used sparingly */
+      --cyan: #00c8e0;
+      --cyan-dim: rgba(0,200,224,0.1);
+      --purple: #7c3aed;
+      --purple-dim: rgba(124,58,237,0.08);
+      --magenta: #db2777;
+      --green: #16a34a;
+      --amber: #d97706;
+      --font: 'Inter', system-ui, sans-serif;
+      --font-brand: 'Syne', system-ui, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 24px rgba(0,0,0,0.08), 0 16px 48px rgba(0,0,0,0.06);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      background: var(--void);
-      color: var(--white);
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-    }
-
-    /* GRID */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(157,92,255,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(157,92,255,0.055) 1px, transparent 1px);
-      background-size: 72px 72px;
-      transform: perspective(760px) rotateX(56deg) translateY(22vh);
-      transform-origin: center top;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent 65%);
-      pointer-events: none;
-      z-index: 0;
     }
 
     /* NAV */
@@ -69,130 +53,115 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      height: 64px;
-      padding: 0 48px;
+      height: 60px;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(7,7,12,0.85);
-      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
-    .logo {
+    .nav-logo {
       display: flex;
       align-items: baseline;
       gap: 8px;
       text-decoration: none;
     }
 
-    .logo-mark {
-      font-family: var(--font-head);
-      font-size: 20px;
+    .nav-logo-word {
+      font-family: var(--font-brand);
+      font-size: 22px;
       font-weight: 900;
-      letter-spacing: -1px;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      background: linear-gradient(135deg, #0f1117 40%, var(--purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -1px;
     }
 
-    .logo-by {
+    .nav-logo-by {
+      font-size: 12px;
+      color: var(--text-4);
       font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--dim);
-      letter-spacing: 0.5px;
     }
 
-    .nav-links {
+    .nav-right {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
     }
 
-    .nav-links a {
-      font-size: 13px;
-      color: var(--fog);
+    .nav-link {
+      font-size: 14px;
+      color: var(--text-3);
       text-decoration: none;
       transition: color 0.15s;
     }
 
-    .nav-links a:hover { color: var(--white); }
+    .nav-link:hover { color: var(--text); }
 
     .nav-cta {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--void) !important;
-      background: var(--cyan);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--text);
       padding: 9px 20px;
-      border-radius: 7px;
-      transition: opacity 0.15s !important;
-      box-shadow: var(--cyan-glow);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
     }
 
-    .nav-cta:hover { opacity: 0.85 !important; }
-
-    /* WRAP */
-    .wrap { position: relative; z-index: 1; }
+    .nav-cta:hover { background: var(--text-2); }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
+      padding: 120px 40px 80px;
+      max-width: 1120px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
       gap: 80px;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 120px 48px 80px;
+      align-items: center;
     }
 
-    .hero-left {}
-
-    .hero-eyebrow {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--cyan);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-3);
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
     }
 
-    .pulse {
-      width: 6px; height: 6px;
+    .badge-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--cyan);
-      box-shadow: 0 0 8px var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
       animation: blink 2s infinite;
     }
 
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
     h1 {
-      font-family: var(--font-head);
-      font-size: clamp(48px, 5.5vw, 76px);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -3px;
-      margin-bottom: 28px;
+      font-size: clamp(40px, 4.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 20px;
     }
 
-    .grad-cyan {
-      background: linear-gradient(135deg, var(--cyan), #80f0ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .grad-mag {
-      background: linear-gradient(135deg, var(--magenta), #ff80c0);
+    h1 .accent {
+      background: linear-gradient(135deg, var(--purple), var(--cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -200,644 +169,449 @@
 
     .hero-sub {
       font-size: 18px;
-      color: var(--fog);
-      line-height: 1.75;
-      margin-bottom: 44px;
+      color: var(--text-3);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 480px;
     }
 
-    .hero-sub strong { color: var(--white); font-weight: 600; }
+    .hero-sub strong { color: var(--text-2); font-weight: 600; }
 
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
-    .btn-cyan {
+    .btn-dark {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-body);
       font-size: 15px;
-      font-weight: 700;
-      color: var(--void);
-      background: var(--cyan);
-      padding: 14px 28px;
-      border-radius: 8px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--text);
+      padding: 13px 28px;
+      border-radius: 9px;
       text-decoration: none;
       border: none;
       cursor: pointer;
-      transition: all 0.15s;
-      box-shadow: var(--cyan-glow);
+      transition: background 0.15s, transform 0.1s;
     }
 
-    .btn-cyan:hover { background: #2af0ff; transform: translateY(-1px); }
+    .btn-dark:hover { background: #1f2937; transform: translateY(-1px); }
 
-    .btn-ghost {
+    .btn-outline {
       font-size: 14px;
-      color: var(--fog);
+      color: var(--text-3);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      border-bottom: 1px solid var(--border-dark);
+      padding-bottom: 1px;
       transition: color 0.15s;
     }
 
-    .btn-ghost:hover { color: var(--white); }
+    .btn-outline:hover { color: var(--text); }
 
-    .hero-proof {
+    .hero-metrics {
       display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding-top: 20px;
+      gap: 36px;
+      padding-top: 28px;
       border-top: 1px solid var(--border);
     }
 
-    .proof-item {}
+    .metric {}
 
-    .proof-val {
-      font-family: var(--font-head);
+    .metric-val {
       font-size: 28px;
-      font-weight: 900;
+      font-weight: 800;
+      color: var(--text);
       letter-spacing: -1px;
-      color: var(--white);
+      line-height: 1;
     }
 
-    .proof-val .unit { color: var(--cyan); }
+    .metric-val span { color: var(--purple); }
 
-    .proof-lbl {
+    .metric-label {
       font-size: 12px;
-      color: var(--fog);
-      margin-top: 2px;
+      color: var(--text-4);
+      margin-top: 4px;
     }
 
-    /* HERO RIGHT — CARD PREVIEW */
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--border-bright);
-      border-radius: 20px;
+    /* HERO MOCKUP */
+    .hero-mockup {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      position: relative;
+      box-shadow: var(--shadow-lg);
     }
 
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--purple), var(--magenta));
-    }
-
-    .card-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border);
+    /* SHARED MOCKUP CHROME */
+    .mock-chrome {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 6px;
+      padding: 10px 14px;
+      background: white;
+      border-bottom: 1px solid var(--border);
     }
 
-    .card-title {
-      font-family: var(--font-mono);
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .md-r { background: #ff5f57; }
+    .md-y { background: #febc2e; }
+    .md-g { background: #28c840; }
+
+    .mock-tab {
+      margin-left: 8px;
       font-size: 11px;
-      color: var(--fog);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .card-status {
+      color: var(--text-4);
       font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--green);
-      background: rgba(34,197,94,0.1);
-      border: 1px solid rgba(34,197,94,0.2);
-      padding: 4px 10px;
-      border-radius: 4px;
     }
 
-    .card-body { padding: 8px 0; }
-
-    .card-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 28px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    .card-item:last-child { border-bottom: none; }
-
-    .card-item:hover { background: rgba(255,255,255,0.02); }
-
-    .card-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .dot-cyan { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
-    .dot-purple { background: var(--purple); box-shadow: 0 0 6px var(--purple); }
-    .dot-mag { background: var(--magenta); box-shadow: 0 0 6px var(--magenta); }
-    .dot-gold { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
-
-    .card-info { flex: 1; }
-
-    .card-item-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 3px;
-    }
-
-    .card-item-desc {
-      font-size: 12px;
-      color: var(--fog);
-    }
-
-    .card-item-badge {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
-
-    .badge-included {
-      color: var(--cyan);
-      background: var(--cyan-dim);
-      border: 1px solid rgba(0,232,255,0.2);
-    }
-
-    .badge-quarterly {
-      color: var(--purple);
-      background: var(--purple-dim);
-      border: 1px solid rgba(157,92,255,0.2);
-    }
-
-    .badge-ongoing {
-      color: var(--gold);
-      background: rgba(255,206,46,0.08);
-      border: 1px solid rgba(255,206,46,0.2);
-    }
-
-    /* SECTION */
+    /* SECTIONS */
     .section {
-      max-width: 1160px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 100px 48px;
+      padding: 80px 40px;
+    }
+
+    .section-sm { padding: 60px 40px; }
+
+    .full-bg {
+      background: var(--off-white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--cyan);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-family: var(--font-head);
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .sub {
-      font-size: 18px;
-      color: var(--fog);
-      max-width: 560px;
-      line-height: 1.7;
-    }
-
-    /* FULL-WIDTH BG SECTIONS */
-    .full-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .full-section .section { padding: 80px 48px; }
-
-    /* WHAT YOU GET */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-
-    .pillar {
-      background: var(--surface2);
-      padding: 36px 28px;
-      position: relative;
-    }
-
-    .pillar-accent {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-    }
-
-    .pillar-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-      border: 1px solid var(--border-bright);
-    }
-
-    .icon-cyan { background: var(--cyan-dim); }
-    .icon-purple { background: var(--purple-dim); }
-    .icon-mag { background: var(--magenta-dim); }
-
-    .pillar-name {
-      font-family: var(--font-head);
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .pillar-desc {
-      font-size: 14px;
-      color: var(--fog);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    .pillar-tag {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 1px;
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-
-    /* OFFICE HOURS DETAIL */
-    .oh-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .oh-panel {
-      background: var(--surface);
-      border: 1px solid var(--border-bright);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .oh-panel::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--magenta), var(--purple));
-    }
-
-    .oh-header {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .oh-title {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--fog);
-      letter-spacing: 1px;
-    }
-
-    .oh-avail {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--green);
-      background: rgba(34,197,94,0.1);
-      border: 1px solid rgba(34,197,94,0.2);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .oh-slots { padding: 8px 0; }
-
-    .oh-slot {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 24px;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-
-    .oh-slot:last-child { border-bottom: none; }
-
-    .oh-slot:hover { background: rgba(255,45,155,0.04); }
-
-    .oh-time {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--fog);
-      width: 60px;
-      flex-shrink: 0;
-    }
-
-    .oh-topic {
-      flex: 1;
-    }
-
-    .oh-topic-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .oh-topic-host {
       font-size: 11px;
-      color: var(--fog);
-    }
-
-    .oh-book {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--magenta);
-      background: var(--magenta-dim);
-      border: 1px solid rgba(255,45,155,0.2);
-      padding: 4px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
-
-    /* CERTIFICATION */
-    .cert-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-
-    .cert-step {
-      background: var(--deep);
-      padding: 32px 24px;
-    }
-
-    .cert-num {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--dim);
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-    }
-
-    .cert-icon { font-size: 26px; margin-bottom: 14px; }
-
-    .cert-name {
-      font-family: var(--font-head);
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
-    }
-
-    .cert-desc {
-      font-size: 13px;
-      color: var(--fog);
-      line-height: 1.6;
-    }
-
-    /* QUARTERLY */
-    .quarter-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 48px;
-    }
-
-    .quarter {
-      background: var(--surface);
-      padding: 28px 24px;
-    }
-
-    .quarter-label {
-      font-family: var(--font-mono);
-      font-size: 9px;
+      font-weight: 700;
       color: var(--purple);
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
-    .quarter-theme {
-      font-family: var(--font-head);
-      font-size: 17px;
+    h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
     }
 
-    .quarter-desc {
-      font-size: 12px;
-      color: var(--fog);
-      line-height: 1.6;
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-3);
+      max-width: 540px;
+      line-height: 1.7;
     }
 
-    /* PRICING */
-    .pricing-grid {
+    /* FEATURE CARDS */
+    .feature-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 1px;
       background: var(--border);
-      border: 1px solid var(--border-bright);
-      border-radius: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       margin-top: 48px;
     }
 
-    .pricing-card {
-      background: var(--surface);
-      padding: 40px 32px;
-      position: relative;
+    .feat-card {
+      background: white;
+      padding: 0;
+      overflow: hidden;
     }
 
-    .pricing-card.featured {
-      background: linear-gradient(160deg, rgba(0,232,255,0.04), rgba(157,92,255,0.04));
+    .feat-mockup-wrap {
+      padding: 20px;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
     }
 
-    .pricing-card.featured::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--purple));
+    .feat-copy {
+      padding: 24px;
     }
 
-    .p-tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      padding: 3px 8px;
-      border-radius: 4px;
+    .feat-tag {
+      font-size: 10px;
+      font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
     }
 
-    .tag-cyan { color: var(--cyan); background: var(--cyan-dim); border: 1px solid rgba(0,232,255,0.2); }
-    .tag-purple { color: var(--purple); background: var(--purple-dim); border: 1px solid rgba(157,92,255,0.2); }
-    .tag-fog { color: var(--fog); background: rgba(122,122,144,0.1); border: 1px solid var(--border-bright); }
+    .feat-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
 
-    .p-name {
-      font-family: var(--font-head);
-      font-size: 22px;
-      font-weight: 900;
+    .feat-desc {
+      font-size: 13px;
+      color: var(--text-3);
+      line-height: 1.6;
+    }
+
+    /* FEATURE ALTERNATING */
+    .feat-alt {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feat-alt:last-child { border-bottom: none; }
+
+    .feat-alt-copy {}
+
+    .feat-alt-copy h3 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 800;
       letter-spacing: -0.5px;
-      color: var(--white);
-      margin-bottom: 6px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
     }
 
-    .p-tagline {
-      font-size: 13px;
-      color: var(--fog);
-      margin-bottom: 28px;
-      line-height: 1.5;
+    .feat-alt-copy p {
+      font-size: 16px;
+      color: var(--text-3);
+      line-height: 1.7;
+      margin-bottom: 16px;
     }
 
-    .p-price {
-      font-family: var(--font-head);
-      font-size: 48px;
-      font-weight: 900;
-      letter-spacing: -2px;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .p-price sup { font-size: 20px; vertical-align: super; letter-spacing: 0; }
-
-    .p-period {
-      font-size: 12px;
-      color: var(--fog);
-      margin-bottom: 28px;
-    }
-
-    .p-features {
+    .feat-list {
       list-style: none;
-      margin-bottom: 32px;
+      margin-top: 20px;
     }
 
-    .p-features li {
-      font-size: 13px;
-      color: var(--fog);
-      padding: 9px 0;
+    .feat-list li {
+      font-size: 14px;
+      color: var(--text-3);
+      padding: 8px 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: flex-start;
       gap: 10px;
+      line-height: 1.5;
+    }
+
+    .feat-list li:last-child { border-bottom: none; }
+
+    .li-check { color: var(--purple); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* UI MOCKUPS */
+    .mock {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .mock-body { padding: 16px; }
+
+    .mock-sm {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    /* MINI UI ELEMENTS */
+    .ui-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .pill-green { color: var(--green); background: rgba(22,163,74,0.1); }
+    .pill-amber { color: var(--amber); background: rgba(217,119,6,0.1); }
+    .pill-purple { color: var(--purple); background: rgba(124,58,237,0.08); }
+    .pill-cyan { color: #0284c7; background: rgba(2,132,199,0.08); }
+    .pill-gray { color: var(--text-4); background: var(--off-white); border: 1px solid var(--border); }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--off-white);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+    }
+
+    .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    /* PRICING */
+    .pricing-card-main {
+      background: var(--text);
+      color: white;
+      border-radius: 20px;
+      padding: 56px;
+      max-width: 680px;
+      margin: 48px auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card-main::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+    }
+
+    .pc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .pc-name {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .pc-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .pc-price {
+      font-family: var(--font-brand);
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pc-price sup { font-size: 30px; vertical-align: super; letter-spacing: 0; }
+
+    .pc-period {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 40px;
+    }
+
+    .pc-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 36px 0;
+    }
+
+    .pc-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .pc-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
       line-height: 1.45;
     }
 
-    .p-features li:last-child { border-bottom: none; }
+    .pc-check { color: var(--cyan); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
 
-    .chk { color: var(--cyan); flex-shrink: 0; font-weight: 700; margin-top: 1px; }
-    .dash { color: var(--dim); flex-shrink: 0; margin-top: 1px; }
-
-    .p-cta {
+    .pc-cta {
       display: block;
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
-      padding: 13px;
-      border-radius: 8px;
+      color: var(--text);
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: all 0.15s;
+      transition: opacity 0.15s, transform 0.1s;
     }
 
-    .cta-cyan { color: var(--void); background: var(--cyan); box-shadow: var(--cyan-glow); }
-    .cta-cyan:hover { background: #2af0ff; transform: translateY(-1px); }
-    .cta-border { color: var(--white); border: 1px solid var(--border-bright); }
-    .cta-border:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.25); }
+    .pc-cta:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    .pc-note {
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 16px;
+    }
 
     /* WAITLIST */
-    .waitlist-section {
-      text-align: center;
-      padding: 120px 48px;
-      max-width: 1160px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .wl-glow {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 400px;
-      background: radial-gradient(ellipse, rgba(0,232,255,0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .wl-form {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       max-width: 420px;
       margin: 0 auto 12px;
     }
 
     .wl-input {
       flex: 1;
-      font-family: var(--font-body);
+      font-family: var(--font);
       font-size: 14px;
-      padding: 13px 18px;
-      background: var(--surface);
-      border: 1px solid var(--border-bright);
+      padding: 12px 16px;
+      border: 1px solid var(--border-dark);
       border-radius: 8px;
-      color: var(--white);
+      color: var(--text);
+      background: white;
       outline: none;
       transition: border-color 0.2s;
     }
 
-    .wl-input::placeholder { color: var(--dim); }
-    .wl-input:focus { border-color: rgba(0,232,255,0.35); }
+    .wl-input::placeholder { color: var(--text-4); }
+    .wl-input:focus { border-color: var(--purple); }
 
-    .wl-note { font-size: 12px; color: var(--dim); }
+    .wl-note { font-size: 12px; color: var(--text-4); text-align: center; }
 
     .wl-success {
       display: none;
       max-width: 420px;
       margin: 0 auto;
       padding: 14px 20px;
-      background: rgba(34,197,94,0.08);
-      border: 1px solid rgba(34,197,94,0.2);
+      background: rgba(22,163,74,0.08);
+      border: 1px solid rgba(22,163,74,0.2);
       border-radius: 8px;
       color: var(--green);
       font-size: 14px;
@@ -847,40 +621,21 @@
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
-      padding: 36px 48px;
+      padding: 36px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      background: var(--off-white);
     }
 
     .footer-logo {
-      font-family: var(--font-head);
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
       text-decoration: none;
     }
-
-    .footer-by {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--dim);
-    }
-
-    .footer-by a { color: var(--fog); text-decoration: none; }
-    .footer-by a:hover { color: var(--white); }
 
     .footer-links {
       display: flex;
@@ -889,370 +644,511 @@
 
     .footer-links a {
       font-size: 13px;
-      color: var(--fog);
+      color: var(--text-4);
       text-decoration: none;
       transition: color 0.15s;
     }
 
-    .footer-links a:hover { color: var(--white); }
+    .footer-links a:hover { color: var(--text); }
 
-    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-copy { font-size: 12px; color: var(--text-4); }
+
+    /* FADE IN */
+    .fade-section { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
+    .fade-section.visible { opacity: 1; transform: none; }
 
     /* MOBILE */
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { gap: 16px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { grid-template-columns: 1fr; gap: 48px; padding: 100px 24px 60px; }
-      .hero-right { display: none; }
-      .section, .waitlist-section { padding: 60px 24px; }
-      .full-section .section { padding: 60px 24px; }
-      .pillars { grid-template-columns: 1fr; }
-      .cert-steps { grid-template-columns: 1fr 1fr; }
-      .quarter-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .oh-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      .nav-right .nav-link { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 48px; }
+      .hero-mockup { display: none; }
+      .section, .section-sm { padding: 60px 20px; }
+      .feature-grid-3 { grid-template-columns: 1fr; }
+      .feat-alt { grid-template-columns: 1fr; gap: 32px; }
+      .pricing-card-main { padding: 36px 24px; }
+      .pc-features { grid-template-columns: 1fr; }
+      .pc-price { font-size: 56px; }
       footer { flex-direction: column; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
-
-    @media (max-width: 500px) {
-      .cert-steps { grid-template-columns: 1fr; }
-      .quarter-grid { grid-template-columns: 1fr; }
       .wl-form { flex-direction: column; }
-      h1 { letter-spacing: -2px; }
     }
   </style>
 </head>
 <body>
-<div class="wrap">
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">
-    <span class="logo-mark">Praxis</span>
-    <span class="logo-by">by ShiftWorks</span>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-word">Praxis</span>
+    <span class="nav-logo-by">by ShiftWorks</span>
   </a>
-  <div class="nav-links">
-    <a href="#how-it-works">How it works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="https://shiftworksai.com">ShiftWorks</a>
+  <div class="nav-right">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="https://shiftworksai.com" class="nav-link">ShiftWorks</a>
     <a href="#waitlist" class="nav-cta">Get early access</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="pulse"></span>
-      AI Enablement — Ongoing
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Pilot cohorts opening Q2 2026
     </div>
 
-    <h1>Your team's<br><span class="grad-cyan">AI partner.</span><br>Not a course.</h1>
+    <h1>Your team's<br><span class="accent">AI partner</span> —<br>month after month.</h1>
 
     <p class="hero-sub">
-      A workshop is a starting line, not a finish line. <strong>Praxis is the ongoing membership</strong> that keeps your team sharp — certification, quarterly workshops, and 1-on-1 office hours, month after month.
+      AI training isn't a one-time event. <strong>Praxis is the ongoing membership</strong> that keeps your team sharp — with AI coaches, custom curriculums, live sessions, and human-reviewed certification, all in one platform.
     </p>
 
     <div class="hero-actions">
-      <a href="#waitlist" class="btn-cyan">Get early access →</a>
-      <a href="#how-it-works" class="btn-ghost">See what's included ↓</a>
+      <a href="#waitlist" class="btn-dark">Get early access →</a>
+      <a href="#features" class="btn-outline">See the platform ↓</a>
     </div>
 
-    <div class="hero-proof">
-      <div class="proof-item">
-        <div class="proof-val">30<span class="unit">d</span></div>
-        <div class="proof-lbl">to first certification</div>
+    <div class="hero-metrics">
+      <div class="metric">
+        <div class="metric-val">1<span>:1</span></div>
+        <div class="metric-label">AI coaching sessions</div>
       </div>
-      <div class="proof-item">
-        <div class="proof-val">4<span class="unit">×</span></div>
-        <div class="proof-lbl">live workshops per year</div>
+      <div class="metric">
+        <div class="metric-val">4<span>×</span></div>
+        <div class="metric-label">live sessions per year</div>
       </div>
-      <div class="proof-item">
-        <div class="proof-val">1<span class="unit">:1</span></div>
-        <div class="proof-lbl">office hours included</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-card">
-      <div class="card-header">
-        <span class="card-title">Your Praxis Membership</span>
-        <span class="card-status">Active</span>
-      </div>
-      <div class="card-body">
-        <div class="card-item">
-          <div class="card-dot dot-cyan"></div>
-          <div class="card-info">
-            <div class="card-item-name">Certification Track</div>
-            <div class="card-item-desc">30-day mission program · human review</div>
-          </div>
-          <span class="card-item-badge badge-included">Included</span>
-        </div>
-        <div class="card-item">
-          <div class="card-dot dot-purple"></div>
-          <div class="card-info">
-            <div class="card-item-name">Quarterly Workshops</div>
-            <div class="card-item-desc">Live, facilitated · new content each quarter</div>
-          </div>
-          <span class="card-item-badge badge-quarterly">4× / year</span>
-        </div>
-        <div class="card-item">
-          <div class="card-dot dot-mag"></div>
-          <div class="card-info">
-            <div class="card-item-name">Office Hours</div>
-            <div class="card-item-desc">Book 1-on-1 with a ShiftWorks facilitator</div>
-          </div>
-          <span class="card-item-badge badge-ongoing">Monthly</span>
-        </div>
-        <div class="card-item">
-          <div class="card-dot dot-gold"></div>
-          <div class="card-info">
-            <div class="card-item-name">Atlas Access</div>
-            <div class="card-item-desc">Org-wide prompt library · SOPs · tracking</div>
-          </div>
-          <span class="card-item-badge badge-included">Included</span>
-        </div>
+      <div class="metric">
+        <div class="metric-val">∞</div>
+        <div class="metric-label">team members</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- WHAT YOU GET -->
-<div class="full-section" id="how-it-works">
-  <div class="section">
-    <p class="eyebrow">What's included</p>
-    <h2>Everything your team<br>needs to stay ahead.</h2>
-
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-accent" style="background: linear-gradient(90deg, var(--cyan), transparent);"></div>
-        <div class="pillar-icon icon-cyan">🎯</div>
-        <div class="pillar-name">AI Certification</div>
-        <div class="pillar-desc">Every team member completes a structured 30-day mission track using their actual work. Portfolios are reviewed by a ShiftWorks facilitator. Certification is earned — not given.</div>
-        <span class="pillar-tag badge-included">Human-reviewed</span>
-      </div>
-      <div class="pillar">
-        <div class="pillar-accent" style="background: linear-gradient(90deg, var(--magenta), transparent);"></div>
-        <div class="pillar-icon icon-mag">🕐</div>
-        <div class="pillar-name">1-on-1 Office Hours</div>
-        <div class="pillar-desc">Employees book time with a ShiftWorks AI practitioner to work through specific tasks, build custom prompts, or implement AI into workflows they're actively using.</div>
-        <span class="pillar-tag" style="color:var(--magenta);background:var(--magenta-dim);border:1px solid rgba(255,45,155,0.2);">Book anytime</span>
-      </div>
-      <div class="pillar">
-        <div class="pillar-accent" style="background: linear-gradient(90deg, var(--purple), transparent);"></div>
-        <div class="pillar-icon icon-purple">⚡</div>
-        <div class="pillar-name">Quarterly Workshops</div>
-        <div class="pillar-desc">Live, all-hands sessions four times per year. New framework, new skills, new content each quarter — so your team's AI capabilities compound instead of stagnating.</div>
-        <span class="pillar-tag" style="color:var(--purple);background:var(--purple-dim);border:1px solid rgba(157,92,255,0.2);">4× per year</span>
-      </div>
+  <div class="hero-mockup fade-section">
+    <!-- Dashboard overview mockup -->
+    <div class="mock-chrome">
+      <div class="mock-dot md-r"></div>
+      <div class="mock-dot md-y"></div>
+      <div class="mock-dot md-g"></div>
+      <span class="mock-tab">app.praxis.shiftworksai.com/dashboard</span>
     </div>
-  </div>
-</div>
-
-<!-- OFFICE HOURS DETAIL -->
-<section>
-  <p class="eyebrow">Office hours</p>
-  <div class="oh-grid">
-    <div>
-      <h2>Real help for<br>real <span class="grad-mag">work.</span></h2>
-      <p class="sub" style="margin-bottom: 24px;">Not a chatbot. Not a course. Your employees book a real session with a ShiftWorks practitioner who helps them implement AI on whatever they're working on right now.</p>
-      <p class="sub">Weekly report taking 3 hours? Client proposal feels generic? SOPs that nobody reads? Office hours turns those into wins — with prompts built for that specific person's workflow.</p>
-    </div>
-    <div class="oh-panel">
-      <div class="oh-header">
-        <span class="oh-title">Book a session</span>
-        <span class="oh-avail">4 slots available</span>
-      </div>
-      <div class="oh-slots">
-        <div class="oh-slot">
-          <span class="oh-time">Mon 10am</span>
-          <div class="oh-topic">
-            <div class="oh-topic-name">Report & Doc Automation</div>
-            <div class="oh-topic-host">with Jake · ShiftWorks</div>
-          </div>
-          <span class="oh-book">Book →</span>
+    <div style="display:flex; height: 340px; overflow: hidden;">
+      <!-- Sidebar -->
+      <div style="width:160px; background:#fafafa; border-right:1px solid #e8eaed; padding:16px; flex-shrink:0;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+          <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00c8e0);display:flex;align-items:center;justify-content:center;font-size:14px;">🎯</div>
+          <span style="font-family:'Syne',sans-serif;font-size:14px;font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,#0f1117 40%,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Praxis</span>
         </div>
-        <div class="oh-slot">
-          <span class="oh-time">Tue 2pm</span>
-          <div class="oh-topic">
-            <div class="oh-topic-name">Client Comms & Proposals</div>
-            <div class="oh-topic-host">with Jake · ShiftWorks</div>
-          </div>
-          <span class="oh-book">Book →</span>
-        </div>
-        <div class="oh-slot">
-          <span class="oh-time">Thu 11am</span>
-          <div class="oh-topic">
-            <div class="oh-topic-name">Workflow & SOP Building</div>
-            <div class="oh-topic-host">with Jake · ShiftWorks</div>
-          </div>
-          <span class="oh-book">Book →</span>
-        </div>
-        <div class="oh-slot">
-          <span class="oh-time">Fri 3pm</span>
-          <div class="oh-topic">
-            <div class="oh-topic-name">Open — Bring Any Task</div>
-            <div class="oh-topic-host">with Jake · ShiftWorks</div>
-          </div>
-          <span class="oh-book">Book →</span>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:11px;color:#7c3aed;background:rgba(124,58,237,0.08);border-radius:6px;padding:7px 10px;font-weight:600;display:flex;align-items:center;gap:6px;">📊 Dashboard</div>
+          <div style="font-size:11px;color:#9ca3af;border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:6px;">🧠 My Curriculum</div>
+          <div style="font-size:11px;color:#9ca3af;border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:6px;">👤 AI Coaches</div>
+          <div style="font-size:11px;color:#9ca3af;border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:6px;">📅 Live Sessions</div>
+          <div style="font-size:11px;color:#9ca3af;border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:6px;">🏆 Certification</div>
+          <div style="font-size:11px;color:#9ca3af;border-radius:6px;padding:7px 10px;display:flex;align-items:center;gap:6px;">👥 My Team</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATION -->
-<div class="full-section">
-  <div class="section">
-    <p class="eyebrow">Certification</p>
-    <h2>Earn it. Don't<br>just <span class="grad-cyan">complete it.</span></h2>
-    <p class="sub">30-day mission track. Real work. Human review. A credential that actually means something because it was earned through demonstrated performance — not a quiz.</p>
-
-    <div class="cert-steps">
-      <div class="cert-step">
-        <div class="cert-num">01 —</div>
-        <div class="cert-icon">🎯</div>
-        <div class="cert-name">Foundations Workshop</div>
-        <div class="cert-desc">Live session to kick off the track. Your team learns the RCTC framework and builds their first 3 real prompts.</div>
-      </div>
-      <div class="cert-step">
-        <div class="cert-num">02 —</div>
-        <div class="cert-icon">⚡</div>
-        <div class="cert-name">Mission Track</div>
-        <div class="cert-desc">Guided missions over 30 days using actual job tasks. Each mission produces a real work artifact, not a hypothetical.</div>
-      </div>
-      <div class="cert-step">
-        <div class="cert-num">03 —</div>
-        <div class="cert-icon">📋</div>
-        <div class="cert-name">Portfolio Review</div>
-        <div class="cert-desc">Each participant submits their mission portfolio. A ShiftWorks facilitator reviews it against clear, published criteria.</div>
-      </div>
-      <div class="cert-step">
-        <div class="cert-num">04 —</div>
-        <div class="cert-icon">🏆</div>
-        <div class="cert-name">Certification</div>
-        <div class="cert-desc">Participants who meet the standard receive their Praxis certification. Real sign-off, real credential. New hires certify on their own schedule.</div>
+      <!-- Main -->
+      <div style="flex:1; padding:16px; overflow:hidden;">
+        <div style="font-size:13px;font-weight:700;color:#0f1117;margin-bottom:4px;">Good morning, Sarah 👋</div>
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:16px;">Your team is 68% certified. Next live session in 4 days.</div>
+        <!-- Stat row -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">
+          <div style="background:#fafafa;border:1px solid #e8eaed;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:800;color:#0f1117;letter-spacing:-0.5px;">68%</div>
+            <div style="font-size:10px;color:#9ca3af;">Team certified</div>
+          </div>
+          <div style="background:#fafafa;border:1px solid #e8eaed;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:800;color:#7c3aed;letter-spacing:-0.5px;">12</div>
+            <div style="font-size:10px;color:#9ca3af;">Sessions booked</div>
+          </div>
+          <div style="background:#fafafa;border:1px solid #e8eaed;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:800;color:#16a34a;letter-spacing:-0.5px;">3</div>
+            <div style="font-size:10px;color:#9ca3af;">Certified this week</div>
+          </div>
+        </div>
+        <!-- Team progress -->
+        <div style="background:#fafafa;border:1px solid #e8eaed;border-radius:8px;padding:12px;">
+          <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:10px;">Team Progress</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="avatar" style="background:#7c3aed;font-size:10px;">SC</div>
+              <div style="flex:1;">
+                <div style="font-size:11px;font-weight:600;color:#0f1117;">Sarah C.</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+              </div>
+              <span class="ui-pill pill-green" style="font-size:9px;">Certified</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="avatar" style="background:#0284c7;font-size:10px;">MR</div>
+              <div style="flex:1;">
+                <div style="font-size:11px;font-weight:600;color:#0f1117;">Mike R.</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:52%"></div></div>
+              </div>
+              <span class="ui-pill pill-amber" style="font-size:9px;">Module 2</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="avatar" style="background:#db2777;font-size:10px;">JL</div>
+              <div style="flex:1;">
+                <div style="font-size:11px;font-weight:600;color:#0f1117;">Jamie L.</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+              </div>
+              <span class="ui-pill pill-gray" style="font-size:9px;">Started</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- QUARTERLY WORKSHOPS -->
-<section>
-  <p class="eyebrow">Quarterly workshops</p>
-  <h2>New skills, every<br><span class="grad-cyan">quarter.</span></h2>
-  <p class="sub">AI moves fast. Four times a year, your whole team gets a live facilitated session with new content — so your capabilities compound instead of stagnating.</p>
+<!-- WHAT IS PRAXIS -->
+<div class="full-bg" id="features">
+  <div class="section section-sm">
+    <div class="fade-section">
+      <p class="eyebrow">What is Praxis</p>
+      <h2 style="max-width:560px;">Not a course. Not a one-time thing.<br>A continuous system.</h2>
+      <p class="section-sub">Praxis is a platform + service hybrid. The software handles the curriculum, coaching schedule, certification tracking, and team progress. ShiftWorks handles the facilitation, reviews, and 1-on-1 coaching. Together, they keep your team ahead — permanently.</p>
+    </div>
 
-  <div class="quarter-grid">
-    <div class="quarter">
-      <div class="quarter-label">Q1 — Foundation</div>
-      <div class="quarter-theme">The AI-Native Workflow</div>
-      <div class="quarter-desc">RCTC framework, Leverage Mapping, and building your first reusable prompt templates.</div>
-    </div>
-    <div class="quarter">
-      <div class="quarter-label">Q2 — Acceleration</div>
-      <div class="quarter-theme">Workflow Automation</div>
-      <div class="quarter-desc">Turn your top 3 recurring tasks into AI-enhanced workflows. Multi-step prompts, chaining, and handoff.</div>
-    </div>
-    <div class="quarter">
-      <div class="quarter-label">Q3 — Depth</div>
-      <div class="quarter-theme">Advanced Prompting</div>
-      <div class="quarter-desc">Chain-of-thought, persona prompts, structured output, and prompt systems that work at team scale.</div>
-    </div>
-    <div class="quarter">
-      <div class="quarter-label">Q4 — Strategy</div>
-      <div class="quarter-theme">AI Governance & Culture</div>
-      <div class="quarter-desc">How to build a team that improves over time. Prompt standards, knowledge sharing, and staying ahead.</div>
+    <div class="feature-grid-3" style="margin-top:48px;">
+      <!-- AI Coaches -->
+      <div class="feat-card fade-section">
+        <div class="feat-mockup-wrap">
+          <div class="mock-sm">
+            <div class="mock-chrome" style="padding:8px 12px;">
+              <div class="mock-dot md-r" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-y" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-g" style="width:8px;height:8px;"></div>
+              <span class="mock-tab" style="font-size:10px;">AI Coaches</span>
+            </div>
+            <div style="padding:12px;">
+              <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:10px;">Available coaches</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:10px;background:#f8f9fb;border-radius:8px;padding:10px;">
+                  <div class="avatar" style="background:linear-gradient(135deg,#7c3aed,#00c8e0);font-size:11px;">JH</div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#0f1117;">Jake H.</div>
+                    <div style="font-size:10px;color:#9ca3af;">ShiftWorks Founder</div>
+                  </div>
+                  <div style="background:#7c3aed;color:white;font-size:10px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;">Book</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;background:#f8f9fb;border-radius:8px;padding:10px;">
+                  <div class="avatar" style="background:#0284c7;font-size:11px;">AL</div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#0f1117;">Alex L.</div>
+                    <div style="font-size:10px;color:#9ca3af;">AI Practitioner</div>
+                  </div>
+                  <div style="background:#7c3aed;color:white;font-size:10px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;">Book</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-copy">
+          <div class="feat-tag" style="color:var(--purple);">AI Coaches</div>
+          <div class="feat-title">Real people, real sessions</div>
+          <div class="feat-desc">Employees book 1-on-1 sessions with a ShiftWorks AI practitioner to work through specific tasks, build custom prompts, or get unstuck on anything they're using AI for.</div>
+        </div>
+      </div>
+
+      <!-- Curriculum -->
+      <div class="feat-card fade-section">
+        <div class="feat-mockup-wrap">
+          <div class="mock-sm">
+            <div class="mock-chrome" style="padding:8px 12px;">
+              <div class="mock-dot md-r" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-y" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-g" style="width:8px;height:8px;"></div>
+              <span class="mock-tab" style="font-size:10px;">My Curriculum</span>
+            </div>
+            <div style="padding:12px;">
+              <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:10px;">Q1 Track — Operations Team</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="background:#f8f9fb;border-radius:6px;padding:8px 10px;border-left:3px solid #16a34a;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:11px;font-weight:600;color:#0f1117;">Module 1: RCTC Framework</span>
+                    <span class="ui-pill pill-green" style="font-size:9px;">✓ Done</span>
+                  </div>
+                </div>
+                <div style="background:#f8f9fb;border-radius:6px;padding:8px 10px;border-left:3px solid #7c3aed;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:11px;font-weight:600;color:#0f1117;">Module 2: Workflow Automation</span>
+                    <span class="ui-pill pill-purple" style="font-size:9px;">In progress</span>
+                  </div>
+                  <div style="margin-top:6px;">
+                    <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+                    <div style="font-size:9px;color:#9ca3af;margin-top:3px;">3 of 5 missions complete</div>
+                  </div>
+                </div>
+                <div style="background:#f8f9fb;border-radius:6px;padding:8px 10px;border-left:3px solid #e8eaed;">
+                  <div style="font-size:11px;color:#9ca3af;">Module 3: Advanced Prompting</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-copy">
+          <div class="feat-tag" style="color:#0284c7;">Custom Curriculum</div>
+          <div class="feat-title">Built for your team's actual work</div>
+          <div class="feat-desc">Every Praxis organization gets a curriculum tailored to their team's role and workflows. Missions use your real tasks — not generic AI exercises. New modules unlock quarterly.</div>
+        </div>
+      </div>
+
+      <!-- Certification -->
+      <div class="feat-card fade-section">
+        <div class="feat-mockup-wrap">
+          <div class="mock-sm">
+            <div class="mock-chrome" style="padding:8px 12px;">
+              <div class="mock-dot md-r" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-y" style="width:8px;height:8px;"></div>
+              <div class="mock-dot md-g" style="width:8px;height:8px;"></div>
+              <span class="mock-tab" style="font-size:10px;">Certification</span>
+            </div>
+            <div style="padding:12px;">
+              <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:10px;">Portfolio Review</div>
+              <div style="background:#f8f9fb;border-radius:8px;padding:10px;margin-bottom:8px;">
+                <div style="font-size:11px;font-weight:600;color:#0f1117;margin-bottom:4px;">Sarah Chen — Module 2</div>
+                <div style="font-size:10px;color:#9ca3af;margin-bottom:8px;">Submitted 3 workflow artifacts · 2 prompts</div>
+                <div style="display:flex;gap:6px;">
+                  <div style="background:white;border:1px solid #e8eaed;border-radius:4px;padding:4px 8px;font-size:10px;color:#374151;">📄 Report Automation.md</div>
+                  <div style="background:white;border:1px solid #e8eaed;border-radius:4px;padding:4px 8px;font-size:10px;color:#374151;">📄 Client Brief.md</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:6px;justify-content:flex-end;">
+                <div style="background:#f3f4f6;border-radius:6px;padding:5px 10px;font-size:10px;font-weight:600;color:#374151;cursor:pointer;">Request Revisions</div>
+                <div style="background:#16a34a;border-radius:6px;padding:5px 10px;font-size:10px;font-weight:600;color:white;cursor:pointer;">✓ Certify</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feat-copy">
+          <div class="feat-tag" style="color:var(--green);">Human Certification</div>
+          <div class="feat-title">Earned, not just completed</div>
+          <div class="feat-desc">Participants submit a portfolio of real work artifacts. A ShiftWorks facilitator reviews every submission. Certification is a sign-off from a real person — not an automated score.</div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- FEATURE DEEP DIVES -->
+<div class="section" style="padding-bottom:0;">
+  <!-- Live Sessions -->
+  <div class="feat-alt fade-section">
+    <div class="feat-alt-copy">
+      <p class="eyebrow">Live Sessions</p>
+      <h3>Quarterly workshops.<br>New content, every time.</h3>
+      <p>Four times a year, your whole team attends a live, facilitated session. Not a repeat of the onboarding. Fresh framework, new skills, new application — so your capabilities compound instead of going stale.</p>
+      <ul class="feat-list">
+        <li><span class="li-check">✓</span> Q1: AI-Native Workflow (RCTC framework, prompt foundations)</li>
+        <li><span class="li-check">✓</span> Q2: Workflow Acceleration (multi-step automation, chaining)</li>
+        <li><span class="li-check">✓</span> Q3: Advanced Prompting (personas, structured output, team scale)</li>
+        <li><span class="li-check">✓</span> Q4: AI Strategy & Governance (standards, culture, what's next)</li>
+      </ul>
+    </div>
+    <div class="mock fade-section">
+      <div class="mock-chrome">
+        <div class="mock-dot md-r"></div>
+        <div class="mock-dot md-y"></div>
+        <div class="mock-dot md-g"></div>
+        <span class="mock-tab">Live Sessions</span>
+      </div>
+      <div style="padding:16px;">
+        <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:12px;">Upcoming sessions</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:14px;display:flex;gap:14px;align-items:flex-start;">
+            <div style="background:linear-gradient(135deg,#7c3aed,#00c8e0);border-radius:8px;padding:8px 10px;text-align:center;flex-shrink:0;">
+              <div style="font-size:11px;font-weight:800;color:white;letter-spacing:-0.3px;">APR</div>
+              <div style="font-size:20px;font-weight:800;color:white;line-height:1;letter-spacing:-1px;">14</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:700;color:#0f1117;margin-bottom:3px;">Q2: Workflow Acceleration</div>
+              <div style="font-size:11px;color:#9ca3af;">Facilitated by Jake H. · 10:00 AM PST · 90 min</div>
+              <div style="margin-top:8px;display:flex;gap:6px;">
+                <span class="ui-pill pill-green">18 attending</span>
+                <span class="ui-pill pill-purple">Recording available</span>
+              </div>
+            </div>
+            <div style="background:#0f1117;color:white;font-size:11px;font-weight:600;padding:6px 14px;border-radius:6px;cursor:pointer;flex-shrink:0;">RSVP</div>
+          </div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:10px;padding:14px;display:flex;gap:14px;align-items:flex-start;">
+            <div style="background:#f3f4f6;border-radius:8px;padding:8px 10px;text-align:center;flex-shrink:0;border:1px solid #e8eaed;">
+              <div style="font-size:11px;font-weight:800;color:#9ca3af;letter-spacing:-0.3px;">JUL</div>
+              <div style="font-size:20px;font-weight:800;color:#9ca3af;line-height:1;letter-spacing:-1px;">22</div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#374151;margin-bottom:3px;">Q3: Advanced Prompting</div>
+              <div style="font-size:11px;color:#9ca3af;">Facilitated by Jake H. · 10:00 AM PST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Office Hours -->
+  <div class="feat-alt fade-section">
+    <div class="mock fade-section">
+      <div class="mock-chrome">
+        <div class="mock-dot md-r"></div>
+        <div class="mock-dot md-y"></div>
+        <div class="mock-dot md-g"></div>
+        <span class="mock-tab">Book a Coach</span>
+      </div>
+      <div style="padding:16px;">
+        <div style="font-size:12px;font-weight:600;color:#374151;margin-bottom:4px;">1-on-1 with Jake H.</div>
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:16px;">ShiftWorks Founder · 30 min sessions</div>
+        <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:8px;">What do you want to work on?</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px;">
+          <div style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:8px;padding:8px;font-size:11px;color:#7c3aed;font-weight:500;cursor:pointer;">📄 Report writing</div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:8px;font-size:11px;color:#374151;cursor:pointer;">✉️ Email templates</div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:8px;font-size:11px;color:#374151;cursor:pointer;">📋 SOP building</div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:8px;font-size:11px;color:#374151;cursor:pointer;">🔧 Specific task</div>
+        </div>
+        <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:8px;">Pick a time</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;">
+          <div style="background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:6px;padding:6px;text-align:center;font-size:10px;font-weight:600;color:#7c3aed;cursor:pointer;">Mon 10am</div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:6px;padding:6px;text-align:center;font-size:10px;color:#374151;cursor:pointer;">Tue 2pm</div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:6px;padding:6px;text-align:center;font-size:10px;color:#374151;cursor:pointer;">Thu 11am</div>
+        </div>
+        <div style="margin-top:12px;background:#0f1117;color:white;border-radius:8px;padding:10px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;">Confirm booking</div>
+      </div>
+    </div>
+    <div class="feat-alt-copy">
+      <p class="eyebrow">Office Hours</p>
+      <h3>Stuck on something?<br>Book a session.</h3>
+      <p>Every team member can book a 1-on-1 with a ShiftWorks AI practitioner — not to learn AI in general, but to apply it to whatever they're working on right now. Report taking 3 hours? Proposal feels generic? That's what office hours is for.</p>
+      <ul class="feat-list">
+        <li><span class="li-check">✓</span> Any topic — bring your actual work</li>
+        <li><span class="li-check">✓</span> 30-minute focused sessions</li>
+        <li><span class="li-check">✓</span> Walk away with prompts you actually use</li>
+        <li><span class="li-check">✓</span> Sessions included in your monthly plan</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Team Progress -->
+  <div class="feat-alt fade-section" style="border-bottom:none; padding-bottom:0;">
+    <div class="feat-alt-copy">
+      <p class="eyebrow">Team Visibility</p>
+      <h3>See where everyone<br>stands, at a glance.</h3>
+      <p>Admins see real-time progress across the whole team — who's certified, who's mid-track, who's falling behind. No chasing people down. No guessing. Just a clear view of your org's AI readiness.</p>
+      <ul class="feat-list">
+        <li><span class="li-check">✓</span> Individual progress tracking per team member</li>
+        <li><span class="li-check">✓</span> Certification status and module completion</li>
+        <li><span class="li-check">✓</span> Coaching session history and upcoming bookings</li>
+        <li><span class="li-check">✓</span> Org-wide adoption dashboard</li>
+      </ul>
+    </div>
+    <div class="mock fade-section">
+      <div class="mock-chrome">
+        <div class="mock-dot md-r"></div>
+        <div class="mock-dot md-y"></div>
+        <div class="mock-dot md-g"></div>
+        <span class="mock-tab">Team Overview</span>
+      </div>
+      <div style="padding:16px;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;">
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:22px;font-weight:800;color:#16a34a;letter-spacing:-1px;">14</div>
+            <div style="font-size:10px;color:#9ca3af;">Certified</div>
+          </div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:22px;font-weight:800;color:#7c3aed;letter-spacing:-1px;">8</div>
+            <div style="font-size:10px;color:#9ca3af;">In track</div>
+          </div>
+          <div style="background:#f8f9fb;border:1px solid #e8eaed;border-radius:8px;padding:10px;text-align:center;">
+            <div style="font-size:22px;font-weight:800;color:#9ca3af;letter-spacing:-1px;">3</div>
+            <div style="font-size:10px;color:#9ca3af;">Not started</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:4px;">Team members</div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f8f9fb;border-radius:8px;">
+            <div class="avatar" style="background:#16a34a;font-size:10px;width:24px;height:24px;">SC</div>
+            <div style="flex:1;font-size:11px;color:#0f1117;font-weight:500;">Sarah Chen</div>
+            <div class="progress-bar" style="width:80px;"><div class="progress-fill" style="width:100%"></div></div>
+            <span class="ui-pill pill-green" style="font-size:9px;">Certified</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f8f9fb;border-radius:8px;">
+            <div class="avatar" style="background:#0284c7;font-size:10px;width:24px;height:24px;">MR</div>
+            <div style="flex:1;font-size:11px;color:#0f1117;font-weight:500;">Mike R.</div>
+            <div class="progress-bar" style="width:80px;"><div class="progress-fill" style="width:52%"></div></div>
+            <span class="ui-pill pill-amber" style="font-size:9px;">52%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px;background:#f8f9fb;border-radius:8px;">
+            <div class="avatar" style="background:#db2777;font-size:10px;width:24px;height:24px;">JL</div>
+            <div style="flex:1;font-size:11px;color:#0f1117;font-weight:500;">Jamie L.</div>
+            <div class="progress-bar" style="width:80px;"><div class="progress-fill" style="width:20%"></div></div>
+            <span class="ui-pill pill-gray" style="font-size:9px;">20%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- PRICING -->
-<div class="full-section" id="pricing">
-  <div class="section">
-    <p class="eyebrow">Pricing</p>
-    <h2>Flat per org.<br>No per-seat math.</h2>
-    <p class="sub">One price, your whole organization. Every person gets certified, attends quarterly workshops, and books office hours — no headcount limits.</p>
+<div class="full-bg" id="pricing" style="margin-top:80px;">
+  <div class="section section-sm" style="text-align:center;">
+    <div class="fade-section">
+      <p class="eyebrow">Pricing</p>
+      <h2>One price.<br>Unlimited team members.</h2>
+      <p class="section-sub" style="margin: 0 auto;">No per-seat math. No tiers to negotiate. One flat monthly price — every person in your organization gets the full Praxis experience.</p>
+    </div>
 
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="p-tag tag-fog">Starter</span>
-        <div class="p-name">Up to 25 people</div>
-        <div class="p-tagline">Great for focused teams and early adopters.</div>
-        <div class="p-price"><sup>$</sup>495</div>
-        <div class="p-period">per month · billed annually</div>
-        <ul class="p-features">
-          <li><span class="chk">✓</span> Certification track (unlimited certifications)</li>
-          <li><span class="chk">✓</span> 2 office hours sessions / month</li>
-          <li><span class="chk">✓</span> 4 quarterly workshops / year</li>
-          <li><span class="chk">✓</span> Atlas access included</li>
-          <li><span class="chk">✓</span> Human portfolio review</li>
-          <li><span class="dash">—</span> Custom mission variants</li>
-        </ul>
-        <a href="#waitlist" class="p-cta cta-border">Join waitlist</a>
+    <div class="pricing-card-main fade-section">
+      <div class="pc-eyebrow">Praxis Membership</div>
+      <div class="pc-name">Full Platform + Service</div>
+      <div class="pc-desc">The complete Praxis experience — custom curriculum, AI coaching, quarterly live sessions, human-reviewed certification, and team progress tracking. Unlimited team members, always.</div>
+
+      <div class="pc-price"><sup>$</sup>3,200</div>
+      <div class="pc-period">per month · billed monthly · unlimited team members</div>
+
+      <hr class="pc-divider">
+
+      <div class="pc-features">
+        <div class="pc-feat"><span class="pc-check">✓</span> Custom curriculum for your team</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> 1-on-1 AI coaching sessions</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> 4 quarterly live workshops / year</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> Human-reviewed certification</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> Unlimited team members</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> Team progress dashboard</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> Atlas access included</div>
+        <div class="pc-feat"><span class="pc-check">✓</span> No contracts — cancel anytime</div>
       </div>
 
-      <div class="pricing-card featured">
-        <span class="p-tag tag-cyan">Growth · Most Popular</span>
-        <div class="p-name">Up to 100 people</div>
-        <div class="p-tagline">For ops teams and mid-market companies serious about adoption.</div>
-        <div class="p-price"><sup>$</sup>995</div>
-        <div class="p-period">per month · billed annually</div>
-        <ul class="p-features">
-          <li><span class="chk">✓</span> Certification track (unlimited certifications)</li>
-          <li><span class="chk">✓</span> 8 office hours sessions / month</li>
-          <li><span class="chk">✓</span> 4 quarterly workshops / year</li>
-          <li><span class="chk">✓</span> Atlas access included</li>
-          <li><span class="chk">✓</span> Human portfolio review</li>
-          <li><span class="chk">✓</span> Custom mission variants for your industry</li>
-        </ul>
-        <a href="#waitlist" class="p-cta cta-cyan">Get early access →</a>
-      </div>
-
-      <div class="pricing-card">
-        <span class="p-tag tag-purple">Scale</span>
-        <div class="p-name">100+ people</div>
-        <div class="p-tagline">Dedicated facilitator, custom curriculum, priority scheduling.</div>
-        <div class="p-price" style="font-size: 36px; letter-spacing: -1px; padding-top: 8px;">Custom</div>
-        <div class="p-period">contact us for pricing</div>
-        <ul class="p-features">
-          <li><span class="chk">✓</span> Everything in Growth</li>
-          <li><span class="chk">✓</span> Unlimited office hours</li>
-          <li><span class="chk">✓</span> Dedicated ShiftWorks facilitator</li>
-          <li><span class="chk">✓</span> Custom quarterly workshop curriculum</li>
-          <li><span class="chk">✓</span> Priority scheduling</li>
-          <li><span class="chk">✓</span> White-label option available</li>
-        </ul>
-        <a href="mailto:jake@shiftworksai.com" class="p-cta cta-border">Talk to us</a>
-      </div>
+      <a href="#waitlist" class="pc-cta">Join the waitlist — pilot pricing available</a>
+      <div class="pc-note">Pilot cohorts launching Q2 2026 · Limited spots at reduced pricing</div>
     </div>
   </div>
 </div>
 
-<!-- WAITLIST CTA -->
-<section class="waitlist-section" id="waitlist">
-  <div class="wl-glow"></div>
-  <p class="eyebrow">Pilot cohorts — Q2 2026</p>
-  <h2>Get in at<br>pilot <span class="grad-cyan">pricing.</span></h2>
-  <p class="sub" style="margin: 0 auto 48px; text-align: center;">Pilot pricing is locked for the first cohorts. Join the waitlist now and we'll reach out before spots open.</p>
+<!-- WAITLIST -->
+<section class="section" id="waitlist" style="text-align:center;">
+  <div class="fade-section">
+    <p class="eyebrow">Q2 2026 · Pilot Cohorts</p>
+    <h2 style="margin-bottom:16px;">Get in at<br>pilot pricing.</h2>
+    <p class="section-sub" style="margin:0 auto 40px;">First cohorts launch Q2 2026 at a reduced pilot rate. Join the waitlist and we'll reach out before spots open.</p>
 
-  <form class="wl-form" id="wlForm" onsubmit="handleSubmit(event)">
-    <input type="email" class="wl-input" placeholder="you@yourcompany.com" required />
-    <button type="submit" class="btn-cyan">Join waitlist</button>
-  </form>
-  <div class="wl-success" id="wlSuccess">✓ You're on the list. We'll be in touch before Q2 cohorts open.</div>
-  <p class="wl-note" style="margin-top: 12px;">No spam. First-come, first-served.</p>
+    <form class="wl-form" id="wlForm" onsubmit="handleSubmit(event)">
+      <input type="email" class="wl-input" placeholder="you@yourcompany.com" required />
+      <button type="submit" class="btn-dark" style="white-space:nowrap;">Join waitlist</button>
+    </form>
+    <div class="wl-success" id="wlSuccess">✓ You're on the list. We'll be in touch before Q2 cohorts open.</div>
+    <p class="wl-note" style="margin-top:12px;">No spam. First-come, first-served.</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">
-    <a href="#" class="footer-logo">Praxis</a>
-    <span class="footer-by">by <a href="https://shiftworksai.com">ShiftWorks</a> · <a href="https://atlas.shiftworksai.com">Also see Atlas →</a></span>
-  </div>
+  <a href="#" class="footer-logo">
+    <span class="nav-logo-word" style="font-size:18px;">Praxis</span>
+    <span class="nav-logo-by">by ShiftWorks</span>
+  </a>
   <div class="footer-links">
     <a href="https://shiftworksai.com">ShiftWorks</a>
     <a href="https://atlas.shiftworksai.com">Atlas</a>
@@ -1261,20 +1157,27 @@
   <span class="footer-copy">© 2026 ShiftWorks AI</span>
 </footer>
 
-</div>
-
 <script>
+// Fade-in observer
+const obs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.fade-section').forEach(el => obs.observe(el));
+
+// Waitlist form
 function handleSubmit(e) {
   e.preventDefault();
   const email = e.target.querySelector('input[type="email"]').value;
   fetch('/api/waitlist', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, source: 'praxis-landing-v3' })
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, source: 'praxis-v4' })
   }).catch(() => {});
   document.getElementById('wlForm').style.display = 'none';
   document.getElementById('wlSuccess').style.display = 'block';
 }
 </script>
+
 </body>
 </html>
